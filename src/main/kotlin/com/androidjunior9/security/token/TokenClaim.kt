@@ -1,0 +1,6 @@
+package com.androidjunior9.security.token
+
+data class TokenClaim(
+    val name:String,
+    val value:String
+)
