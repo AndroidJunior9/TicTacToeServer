@@ -108,7 +108,7 @@ class Room(
         }else if (board[0][0] != 0 && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
             board[0][0]
         }else if (board[0][2] != 0 && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
-            board[0][0]
+            board[0][2]
         }
         else{
             0
@@ -123,7 +123,11 @@ class Room(
         players.remove(username)
         state.update{
             it.copy(
-                players = it.players-player.symbol
+                players = it.players-player.symbol,
+                board = GameState.emptyField(),
+                isBoardFull = false,
+                winner = 0,
+                playerAtTurn = Player.SYMBOL_X
             )
         }
     }
